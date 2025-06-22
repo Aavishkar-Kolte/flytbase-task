@@ -1,17 +1,31 @@
 {
-  "name": "@repo/db",
-  "version": "0.0.0",
-  "private": true,
-  "main": "./index.ts",
-  "types": "./index.ts",
+  "name": "db",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type" : "module",
   "scripts": {
-    "db:generate": "prisma generate",
-    "db:push": "prisma db push --accept-data-loss"
+    "build": "tsc",
+    "test": "node dist/test-schema.js",
+    "test:connection": "node dist/test-connection.js",
+    "migration:generate": "typeorm-ts-node-esm migration:generate -d dist/data-source.js",
+    "migration:run": "typeorm-ts-node-esm migration:run -d dist/data-source.js",
+    "migration:revert": "typeorm-ts-node-esm migration:revert -d dist/data-source.js",
+    "schema:sync": "typeorm-ts-node-esm schema:sync -d dist/data-source.js",
+    "schema:drop": "typeorm-ts-node-esm schema:drop -d dist/data-source.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "pg": "^8.16.2",
+    "reflect-metadata": "^0.2.2",
+    "typeorm": "^0.3.25"
   },
   "devDependencies": {
-    "prisma": "^5.17.0"
-  },
-  "dependencies": {
-    "@prisma/client": "^5.22.0"
+    "@types/node": "^24.0.3",
+    "typescript": "^5.8.3"
   }
 }
