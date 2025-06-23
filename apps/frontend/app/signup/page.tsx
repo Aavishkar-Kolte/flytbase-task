@@ -1,6 +1,6 @@
 "use client"
 import { Drone } from "lucide-react"
-import { LoginForm } from "@/components/login-form"
+import { SignupForm } from "@/components/signup-form"
 
 export default function LoginPage() {
   return (
@@ -12,7 +12,7 @@ export default function LoginPage() {
           </div>
           Dronecontrol
         </a>
-        <LoginForm />
+        <SignupForm />
       </div>
     </div>
   )
